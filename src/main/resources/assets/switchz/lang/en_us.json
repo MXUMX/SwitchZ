@@ -1,0 +1,13 @@
+{
+  "itemGroup.switchz": "Example Mod Tab",
+  "block.switchz.example_block": "Example Block",
+  "item.switchz.example_item": "Example Item",
+
+  "switchz.configuration.title": "switchz Configs",
+  "switchz.configuration.section.switchz.common.toml": "switchz Configs",
+  "switchz.configuration.section.switchz.common.toml.title": "switchz Configs",
+  "switchz.configuration.items": "Item List",
+  "switchz.configuration.logDirtBlock": "Log Dirt Block",
+  "switchz.configuration.magicNumberIntroduction": "Magic Number Text",
+  "switchz.configuration.magicNumber": "Magic Number"
+}
