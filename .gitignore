@@ -24,6 +24,7 @@ eclipse
 run
 runs
 run-data
+dist
 
 repo
 .DS_Store
