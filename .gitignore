@@ -12,6 +12,8 @@ out
 *.iws
 *.iml
 .idea
+.vscode
+.eclipse
 
 # gradle
 build
@@ -24,3 +26,4 @@ runs
 run-data
 
 repo
+.DS_Store

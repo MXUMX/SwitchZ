@@ -4,7 +4,7 @@ import net.minecraft.client.KeyMapping;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import org.lwjgl.glfw.GLFW;
 
 @EventBusSubscriber(
@@ -14,14 +14,14 @@ import org.lwjgl.glfw.GLFW;
 )
 public class SwitchZKeybinds {
 
-    public static KeyMapping OPEN_UI;
+    public static final KeyMapping OPEN_UI = new KeyMapping(
+        "key.switchz.open_ui",
+        GLFW.GLFW_KEY_F9,
+        "key.categories.switchz"
+    );
 
     @SubscribeEvent
-    public static void onClientSetup(FMLClientSetupEvent event) {
-        OPEN_UI = new KeyMapping(
-            "key.switchz.open_ui",
-            GLFW.GLFW_KEY_F9,
-            "key.categories.misc"
-        );
+    public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
+        event.register(OPEN_UI);
     }
 }

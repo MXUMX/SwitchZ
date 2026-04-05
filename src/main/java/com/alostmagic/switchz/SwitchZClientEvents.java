@@ -16,9 +16,7 @@ public class SwitchZClientEvents {
     public static void onClientTick(ClientTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
 
-        if (mc.player == null) return;
-
-        if (SwitchZKeybinds.OPEN_UI.consumeClick()) {
+        if (SwitchZKeybinds.OPEN_UI.consumeClick() && mc.screen == null) {
             mc.setScreen(new SwitchZScreen());
         }
     }

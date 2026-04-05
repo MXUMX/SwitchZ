@@ -6,11 +6,12 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 public class SwitchZScreen extends Screen {
+    private static final int USERNAME_MAX_LENGTH = 16;
 
     private EditBox usernameBox;
 
     public SwitchZScreen() {
-        super(Component.literal("SwitchZ – Change Username"));
+        super(Component.literal("SwitchZ - Change Username"));
     }
 
     @Override
@@ -26,7 +27,7 @@ public class SwitchZScreen extends Screen {
             20,
             Component.literal("Username")
         );
-        usernameBox.setMaxLength(16);
+        usernameBox.setMaxLength(USERNAME_MAX_LENGTH);
         this.addRenderableWidget(usernameBox);
 
         this.addRenderableWidget(
@@ -35,7 +36,7 @@ public class SwitchZScreen extends Screen {
                 btn -> {
                     String name = usernameBox.getValue().trim();
                     if (!name.isEmpty()) {
-                        SwitchZ.switchOfflineAccount(name);
+                        SwitchZClientActions.switchOfflineAccount(name);
                     }
                 }
             ).bounds(
