@@ -9,15 +9,14 @@ import org.lwjgl.glfw.GLFW;
 
 @EventBusSubscriber(
     modid = SwitchZ.MODID,
-    value = Dist.CLIENT,
-    bus = EventBusSubscriber.Bus.MOD
+    value = Dist.CLIENT
 )
 public class SwitchZKeybinds {
 
     public static final KeyMapping OPEN_UI = new KeyMapping(
         "key.switchz.open_ui",
         GLFW.GLFW_KEY_F9,
-        "key.categories.switchz"
+        KeyMapping.Category.GAMEPLAY
     );
 
     @SubscribeEvent

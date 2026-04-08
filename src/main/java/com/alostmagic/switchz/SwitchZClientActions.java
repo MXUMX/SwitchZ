@@ -4,6 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.User;
 import net.minecraft.client.gui.screens.TitleScreen;
 
+import net.neoforged.fml.util.ObfuscationReflectionHelper;
+
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
@@ -27,16 +29,18 @@ public final class SwitchZClientActions {
                 uuid,
                 oldUser.getAccessToken(),
                 oldUser.getXuid(),
-                oldUser.getClientId(),
-                User.Type.LEGACY
+                oldUser.getClientId()
             );
 
-            Field userField = Minecraft.class.getDeclaredField("user");
+            Field userField = ObfuscationReflectionHelper.findField(
+                Minecraft.class,
+                "user"
+            );
             userField.setAccessible(true);
             userField.set(minecraft, newUser);
 
             if (minecraft.level != null) {
-                minecraft.disconnect();
+                minecraft.disconnect(new TitleScreen(), false);
             }
 
             minecraft.setScreen(new TitleScreen());
